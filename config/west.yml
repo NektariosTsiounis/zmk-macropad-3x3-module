@@ -2,12 +2,15 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    # Additional modules containing boards/shields/custom code can be listed here as well
-    # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
+    - name: nektariostsiounis
+      url-base: https://github.com/nektariostsiounis
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: main
       import: app/west.yml
+    - name: zmk-macropad-3x3-module
+      remote: nektariostsiounis
+      revision: main
   self:
     path: config
