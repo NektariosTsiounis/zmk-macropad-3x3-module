@@ -1,3 +1,5 @@
+name: zmk-keyboard-macropad-3x3
 build:
   settings:
     board_root: .
+    dts_root: .
