@@ -16,9 +16,7 @@
                 &kp N7    &kp N8    &kp N9
             >;
             // Encoder bindings: clockwise -> VOL_UP, counterclockwise -> VOL_DOWN
-            sensor-bindings = <
-                &kp VOL_DOWN    // Counterclockwise (decrease volume)
-                &kp VOL_UP      // Clockwise (increase volume)
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
             >;
         };
     };
