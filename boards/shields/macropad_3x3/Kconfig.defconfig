@@ -4,28 +4,34 @@ if SHIELD_MACROPAD_3X3
 config ZMK_KEYBOARD_NAME
     default "Macropad"
 
-endif # SHIELD_MACROPAD_3X3
-
-
-# Display Configuration
 if ZMK_DISPLAY
 
+config ZMK_DISPLAY
+    select LV_USE_CONT
+    select LV_FONT_MONTSERRAT_26
+    select LV_FONT_MONTSERRAT_16
+    select LV_USE_LABEL
+    select LV_USE_IMG
+
 config I2C
-    default y
+	default y
 
 config SSD1306
-    default y
+	default y
+
+config SSD1306_REVERSE_MODE
+    bool
+	default n
 
 endif # ZMK_DISPLAY
 
-
-# LVGL (LittlevGL Graphics Library) Configuration
 if LVGL
 
 config LV_Z_VDB_SIZE
     default 64
 
 config LV_DPI_DEF
+    int
     default 148
 
 config LV_Z_BITS_PER_PIXEL
@@ -36,3 +42,5 @@ choice LV_COLOR_DEPTH
 endchoice
 
 endif # LVGL
+
+endif
