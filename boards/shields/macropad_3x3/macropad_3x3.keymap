@@ -1,7 +1,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
-/
 / {
     keymap {
         compatible = "zmk,keymap";
@@ -11,7 +10,6 @@
             // |     1     |     2     |     3     |
             // |     4     |     5     |     6     |
             // |     7     |     8     |     9     |
-            // -------------------------------------
             bindings = <
                 &kp N1    &kp N2    &kp N3
                 &kp N4    &kp N5    &kp N6
