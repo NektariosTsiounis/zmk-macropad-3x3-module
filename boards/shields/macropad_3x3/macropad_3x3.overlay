@@ -20,8 +20,8 @@
         >;
 
         row-gpios = <
-            &gpio0 06 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)  /* P0.17 (D2) */
-            &gpio0 08 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)  /* P0.20 (D3) */
+            &gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)  /* P0.17 (D2) */
+            &gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)  /* P0.20 (D3) */
             &gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)  /* P0.22 (D4) */
         >;
     };
