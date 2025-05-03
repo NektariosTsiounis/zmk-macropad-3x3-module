@@ -4,6 +4,7 @@
     chosen {
         zmk,kscan = &kscan0;
         zmk,physical-layout = &physical_layout0;
+        zephyr,display = &oled_128x64;
     };
 
     kscan0: kscan0 {
@@ -56,4 +57,36 @@
         sensors = <&lencoder>;
         triggers-per-rotation = <20>;
     };
+
+    pinctrl: pin-controller {
+        i2c0_custom_pins: i2c0_custom_pins {
+            group1 {
+                psels = <NRF_PSEL(TWIM_SDA, 0, 6)>, /* P0.06 (D1) for SDA */
+                        <NRF_PSEL(TWIM_SCL, 0, 8)>; /* P0.08 (D0) for SCL */
+            };
+        };
+    };
+
+    &i2c0 {
+        status = "okay";
+        pinctrl-0 = <&i2c0_custom_pins>;
+        pinctrl-names = "default";
+
+        oled_128x64: ssd1306@3c {
+            compatible = "solomon,ssd1306fb";
+            reg = <0x3c>;
+            status = "okay";
+            width = <128>;
+            height = <64>;
+            segment-offset = <0>;
+            page-offset = <0>;
+            display-offset = <0>;
+            multiplex-ratio = <63>;
+            segment-remap;
+            com-invdir;
+            inversion-on;
+            prechargep = <0x22>;
+        };
+    };
 };
+
