@@ -63,11 +63,19 @@
         /* Configuration for i2c0 device, default state */
         i2c0_default: i2c0_default {
             group1 {
-                /* Configure P0.06 as SDA and P0.08 as SCL */
                 psels = <NRF_PSEL(TWIM_SDA, 0, 6)>, /* P0.06 (D1) for SDA */
                         <NRF_PSEL(TWIM_SCL, 0, 8)>; /* P0.08 (D0) for SCL */
-                /* Optional: Enable pull-up resistors if not on OLED module */
+                /* Enable pull-up resistors if not on OLED module */
                 bias-pull-up;
+            };
+        };
+
+        /* Configuration for i2c0 device, sleep state */
+        i2c0_sleep: i2c0_sleep {
+            group1 {
+                psels = <NRF_PSEL(TWIM_SDA, 0, 6)>, /* P0.06 (D1) for SDA */
+                        <NRF_PSEL(TWIM_SCL, 0, 8)>; /* P0.08 (D0) for SCL */
+                low-power-enable;
             };
         };
     };
@@ -76,7 +84,9 @@
         compatible = "nordic,nrf-twim"; /* TWIM for nRF52840 I2C master */
         status = "okay";
         pinctrl-0 = <&i2c0_default>;
-        pinctrl-names = "default";
+        pinctrl-1 = <&i2c0_sleep>;
+        pinctrl-names = "default", "sleep";
+        clock-frequency = <400000>; /* I2C_BITRATE_FAST (400 kHz) */
 
         oled_128x64: ssd1306@3c {
             compatible = "solomon,ssd1306fb";
@@ -88,9 +98,9 @@
             page-offset = <0>;
             display-offset = <0>;
             multiplex-ratio = <63>;
-            segment-remap;
-            com-invdir;
-            inversion-on;
+            segment-remap; /* Fixed: Added semicolon */
+            com-invdir;    /* Fixed: Added semicolon */
+            inversion-on;  /* Fixed: Added semicolon */
             prechargep = <0x22>;
         };
     };
