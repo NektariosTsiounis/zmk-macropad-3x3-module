@@ -10,41 +10,55 @@
             // -------------------------------------
             // |     1     |     2     |     3     |
             // |     4     |     5     |     6     |
-            // |     7     |     8     |     9     |
+            // |  MO(3)    |     8     |  MO(2)    |
             bindings = <
-                &kp N1    &kp N2    &kp N3
+                &kp N1    &kp N2    &mo 3
                 &kp N4    &kp N5    &kp N6
-                &mo 1     &kp N8    &mo 2
+                &mo 3     &kp N8    &mo 2
             >;
-                        // Encoder bindings: clockwise -> VOL_UP, counterclockwise -> VOL_DOWN
+            // Encoder bindings: clockwise -> VOL_UP, counterclockwise -> VOL_DOWN
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         upper_layer {
             // -------------------------------------
-            // |     1     |     2     |     3     |
+            // |     3     |     2     |     1     |
             // |     4     |     5     |     6     |
-            // |     7     |     8     |     9     |
+            // |  MO(3)    |     8     |  MO(2)    |
             bindings = <
-                &kp N3    &kp N2    &kp N1
+                &kp N3    &kp N2    &mo 3
                 &kp N4    &kp N5    &kp N6
-                &mo 1     &kp N8    &mo 2
+                &mo 3     &kp N8    &mo 2
             >;
-                        // Encoder bindings: clockwise -> VOL_UP, counterclockwise -> VOL_DOWN
+            // Encoder bindings: clockwise -> VOL_UP, counterclockwise -> VOL_DOWN
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         lower_layer {
             // -------------------------------------
-            // |     1     |     2     |     3     |
+            // |     9     |     8     |     7     |
             // |     4     |     5     |     6     |
-            // |     7     |     8     |     9     |
+            // |  MO(3)    |     8     |  MO(2)    |
             bindings = <
-                &kp N9    &kp N8    &kp N7
+                &kp N9    &kp N8    &mo 3
                 &kp N4    &kp N5    &kp N6
-                &mo 1     &kp N8    &mo 2
+                &mo 3     &kp N8    &mo 2
             >;
-                        // Encoder bindings: clockwise -> VOL_UP, counterclockwise -> VOL_DOWN
+            // Encoder bindings: clockwise -> VOL_UP, counterclockwise -> VOL_DOWN
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        layer_selector {
+            // -------------------------------------
+            // |  TO(0)    |  TO(1)    |  TO(2)    |
+            // |  TO(3)    |  TO(0)    |  TO(1)    |
+            // |  MO(3)    |  TO(2)    |  MO(2)    |
+            bindings = <
+                &to 0     &to 1     &to 2
+                &to 3     &to 4     &to 5
+                &to 6     &to 7     &to 8
+            >;
+            // Encoder bindings: clockwise -> VOL_UP, counterclockwise -> VOL_DOWN
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
