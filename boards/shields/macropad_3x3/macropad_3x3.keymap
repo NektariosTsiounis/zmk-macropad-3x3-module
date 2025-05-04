@@ -2,20 +2,46 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        combo_layer_swap {
+            timeout-ms = <50>;
+            key-positions = <0 1>;          // Triggered by pressing keys at positions 0 and 1
+            bindings = <&mo 1>;             // Momentary switch to layer 1 (secondary_layer)
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
-            // -------------------------------------
-            // |     1     |     2     |     3     |
-            // |     4     |     5     |     6     |
-            // |     7     |     8     |     9     |
+            // -------------------------------
+            // | Dark Mode | Open Google | Screenshot |
+            // | Mute      | Play/Pause  | Volume Up  |
+            // | Copy      | Paste       | Undo       |
             bindings = <
-                &kp N1    &kp N2    &kp N3
-                &kp N4    &kp N5    &kp N6
-                &kp N7    &kp N8    &kp N9
+                &kp LWIN(KC_D)         &kp LWIN(KC_G)         &kp LWIN(KC_S)         // Dark Mode (Win+D), Open Google (browser), Screenshot (Win+S)
+                &kp C_MUTE            &kp C_PLAY             &kp C_VOL_UP           // Mute, Play/Pause, Volume Up
+                &kp LCTRL(KC_C)       &kp LCTRL(KC_V)        &kp LCTRL(KC_Z)        // Copy, Paste, Undo
             >;
-            // Encoder bindings: clockwise -> VOL_UP, counterclockwise -> VOL_DOWN
+
+            // Encoder: clockwise -> Volume Up, counterclockwise -> Volume Down
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        secondary_layer {
+            // ----------------------------------------
+            // | New Tab | Close Tab | Next Tab      |
+            // | Prev Tab| Reload    | Fullscreen    |
+            // | Home    | End       | Page Down     |
+            bindings = <
+                &kp LCTRL(KC_T)       &kp LCTRL(KC_W)        &kp LCTRL(KC_TAB)        // New Tab, Close Tab, Next Tab
+                &kp LCTRL(KC_LSFT(KC_TAB)) &kp LCTRL(KC_R)   &kp F11                  // Prev Tab, Reload, Fullscreen
+                &kp KC_HOME           &kp KC_END             &kp KC_PGDN              // Home, End, Page Down
+            >;
+
+            // Encoder: same as default layer
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
