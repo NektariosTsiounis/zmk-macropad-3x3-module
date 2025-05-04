@@ -1,47 +1,50 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
 
 / {
-    combos {
-        compatible = "zmk,combos";
-
-        combo_layer_swap {
-            timeout-ms = <50>;
-            key-positions = <0 1>;         // When keys at positions 0 and 1 are pressed together
-            bindings = <&mo 1>;            // Momentarily switch to Layer 1 (secondary_layer)
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
-            // -------------------------------
-            // | Copy  | Paste | Screenshot |
-            // | Play  | Vol+  | Vol–      |
-            // | Undo  | Redo  | CapsWord  |
+            // -------------------------------------
+            // |     1     |     2     |     3     |
+            // |     4     |     5     |     6     |
+            // |     7     |     8     |     9     |
             bindings = <
-                &kp LCTRL(KC_C)       &kp LCTRL(KC_V)      &kp LWIN(KC_S)     // Copy, Paste, Snip Tool
-                &kp C_PLAY            &kp C_VOL_UP         &kp C_VOL_DN       // Play/Pause, Volume Up, Volume Down
-                &kp LCTRL(KC_Z)       &kp LCTRL(KC_Y)      &caps_word         // Undo, Redo, Toggle Caps Word
+                &kp N1    &kp N2    &kp N3
+                &kp N4    &kp N5    &kp N6
+                &mo 1     &kp N8    &mo 2
             >;
-
-            // Encoder: clockwise -> Volume Up, counterclockwise -> Volume Down
+                        // Encoder bindings: clockwise -> VOL_UP, counterclockwise -> VOL_DOWN
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
-        secondary_layer {
-            // -------------------------------
-            // | NewTab | CloseTab | NextTab  |
-            // | PrevTab| Reload   | Fullscrn |
-            // | PgUp   | PgDown   | Desktop  |
+        upper_layer {
+            // -------------------------------------
+            // |     1     |     2     |     3     |
+            // |     4     |     5     |     6     |
+            // |     7     |     8     |     9     |
             bindings = <
-                &kp LCTRL(KC_T)       &kp LCTRL(KC_W)      &kp LCTRL(KC_TAB)           // New Tab, Close Tab, Next Tab
-                &kp LCTRL(LSFT(KC_TAB)) &kp LCTRL(KC_R)    &kp F11                     // Prev Tab, Reload, Fullscreen
-                &kp KC_PGUP           &kp KC_PGDN          &kp LWIN(KC_D)              // Page Up, Page Down, Show Desktop
+                &kp N3    &kp N2    &kp N1
+                &kp N4    &kp N5    &kp N6
+                &mo 1     &kp N8    &mo 2
             >;
+                        // Encoder bindings: clockwise -> VOL_UP, counterclockwise -> VOL_DOWN
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
 
-            // Encoder: same as default layer
+        lower_layer {
+            // -------------------------------------
+            // |     1     |     2     |     3     |
+            // |     4     |     5     |     6     |
+            // |     7     |     8     |     9     |
+            bindings = <
+                &kp N9    &kp N8    &kp N7
+                &kp N4    &kp N5    &kp N6
+                &mo 1     &kp N8    &mo 2
+            >;
+                        // Encoder bindings: clockwise -> VOL_UP, counterclockwise -> VOL_DOWN
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
