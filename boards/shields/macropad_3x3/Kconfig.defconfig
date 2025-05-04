@@ -19,9 +19,6 @@ config I2C
 config SSD1306
 	default y
 
-config SSD1306_REVERSE_MODE
-    bool
-	default n
 
 endif # ZMK_DISPLAY
 
