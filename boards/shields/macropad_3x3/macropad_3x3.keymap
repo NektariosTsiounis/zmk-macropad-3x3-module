@@ -7,8 +7,8 @@
 
         combo_layer_swap {
             timeout-ms = <50>;
-            key-positions = <0 1>;          // Triggered by pressing keys at positions 0 and 1
-            bindings = <&mo 1>;             // Momentary switch to layer 1 (secondary_layer)
+            key-positions = <0 1>;         // When keys at positions 0 and 1 are pressed together
+            bindings = <&mo 1>;            // Momentarily switch to Layer 1 (secondary_layer)
         };
     };
 
@@ -17,13 +17,13 @@
 
         default_layer {
             // -------------------------------
-            // | Dark Mode | Open Google | Screenshot |
-            // | Mute      | Play/Pause  | Volume Up  |
-            // | Copy      | Paste       | Undo       |
+            // | Copy  | Paste | Screenshot |
+            // | Play  | Vol+  | Vol–      |
+            // | Undo  | Redo  | CapsWord  |
             bindings = <
-                &kp LWIN(KC_D)         &kp LWIN(KC_G)         &kp LWIN(KC_S)         // Dark Mode (Win+D), Open Google (browser), Screenshot (Win+S)
-                &kp C_MUTE            &kp C_PLAY             &kp C_VOL_UP           // Mute, Play/Pause, Volume Up
-                &kp LCTRL(KC_C)       &kp LCTRL(KC_V)        &kp LCTRL(KC_Z)        // Copy, Paste, Undo
+                &kp LCTRL(KC_C)       &kp LCTRL(KC_V)      &kp LWIN(KC_S)     // Copy, Paste, Snip Tool
+                &kp C_PLAY            &kp C_VOL_UP         &kp C_VOL_DN       // Play/Pause, Volume Up, Volume Down
+                &kp LCTRL(KC_Z)       &kp LCTRL(KC_Y)      &caps_word         // Undo, Redo, Toggle Caps Word
             >;
 
             // Encoder: clockwise -> Volume Up, counterclockwise -> Volume Down
@@ -31,14 +31,14 @@
         };
 
         secondary_layer {
-            // ----------------------------------------
-            // | New Tab | Close Tab | Next Tab      |
-            // | Prev Tab| Reload    | Fullscreen    |
-            // | Home    | End       | Page Down     |
+            // -------------------------------
+            // | NewTab | CloseTab | NextTab  |
+            // | PrevTab| Reload   | Fullscrn |
+            // | PgUp   | PgDown   | Desktop  |
             bindings = <
-                &kp LCTRL(KC_T)       &kp LCTRL(KC_W)        &kp LCTRL(KC_TAB)        // New Tab, Close Tab, Next Tab
-                &kp LCTRL(KC_LSFT(KC_TAB)) &kp LCTRL(KC_R)   &kp F11                  // Prev Tab, Reload, Fullscreen
-                &kp KC_HOME           &kp KC_END             &kp KC_PGDN              // Home, End, Page Down
+                &kp LCTRL(KC_T)       &kp LCTRL(KC_W)      &kp LCTRL(KC_TAB)           // New Tab, Close Tab, Next Tab
+                &kp LCTRL(LSFT(KC_TAB)) &kp LCTRL(KC_R)    &kp F11                     // Prev Tab, Reload, Fullscreen
+                &kp KC_PGUP           &kp KC_PGDN          &kp LWIN(KC_D)              // Page Up, Page Down, Show Desktop
             >;
 
             // Encoder: same as default layer
