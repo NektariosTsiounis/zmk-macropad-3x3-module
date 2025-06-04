@@ -17,7 +17,7 @@
                 &kp N7    &kp N8    &mo 3
             >;
             // Encoder bindings: clockwise -> VOL_UP, counterclockwise -> VOL_DOWN
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN>;
         };
 
         upper_layer {
