@@ -6,14 +6,14 @@
     macros {
         compatible = "zmk,macros";
 
-        macro_alttab: alttab {
+        macro_alttab: macro_alttab {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <
-                &kp LALT
-                &kp TAB
-                &kp LALT
-            >;
+            bindings
+                = <&macro_press &kp LALT>
+                , <&macro_tap &kp TAB>
+                , <&macro_release &kp LALT>
+                ;
         };
     };
     keymap {
