@@ -14,7 +14,7 @@
             bindings = <
                 &kp N1    &kp N2    &kp N3
                 &kp N4    &kp N5    &kp N6
-                &kp N7    &kp N8    &mo 3
+                &kp N7    &kp N8    &mo 5
             >;
             // Encoder bindings: clockwise -> VOL_UP, counterclockwise -> VOL_DOWN
             sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN>;
@@ -28,7 +28,7 @@
             bindings = <
                 &kp N3    &kp N2    &kp N1
                 &kp N4    &kp N5    &kp N6
-                &kp N7    &kp N8    &mo 3
+                &kp N7    &kp N8    &mo 5
             >;
             // Encoder bindings: clockwise -> VOL_UP, counterclockwise -> VOL_DOWN
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -42,10 +42,38 @@
             bindings = <
                 &kp N9    &kp N8    &kp N7
                 &kp N4    &kp N5    &kp N6
-                &kp N7    &kp N8    &mo 3
+                &kp N7    &kp N8    &mo 5
             >;
             // Encoder bindings: clockwise -> VOL_UP, counterclockwise -> VOL_DOWN
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        laptop_layer {
+            // -------------------------------------
+            // |  TO(0)    |  TO(1)    |  TO(2)    |
+            // |  TO(3)    |  TO(0)    |  TO(1)    |
+            // |  MO(3)    |  TO(2)    |  MO(2)    |
+            bindings = <
+                &kp N1    &kp N2    &kp N3
+                &kp N4    &kp N5    &kp N6
+                &kp N7    &kp N8    &mo 5
+            >;
+            // Encoder bindings: clockwise -> VOL_UP, counterclockwise -> VOL_DOWN
+            sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN>;
+        };
+
+        bluetooth_layer {
+            // -------------------------------------
+            // |  TO(0)    |  TO(1)    |  TO(2)    |
+            // |  TO(3)    |  TO(0)    |  TO(1)    |
+            // |  MO(3)    |  TO(2)    |  MO(2)    |
+            bindings = <
+                &bt BT_CLR         &bt BT_NXT   &bt BT_PRV
+                &bt BT_CLR_ALL     &kp N1       &kp N1
+                &kp N1             &kp N1       &mo 5
+            >;
+            // Encoder bindings: clockwise -> VOL_UP, counterclockwise -> VOL_DOWN
+            sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN>;
         };
 
         layer_selector {
@@ -60,34 +88,6 @@
             >;
             // Encoder bindings: clockwise -> VOL_UP, counterclockwise -> VOL_DOWN
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-        };
-
-        laptop_layer {
-            // -------------------------------------
-            // |  TO(0)    |  TO(1)    |  TO(2)    |
-            // |  TO(3)    |  TO(0)    |  TO(1)    |
-            // |  MO(3)    |  TO(2)    |  MO(2)    |
-            bindings = <
-                &kp N1    &kp N2    &kp N3
-                &kp N4    &kp N5    &kp N6
-                &kp N7    &kp N8    &mo 3
-            >;
-            // Encoder bindings: clockwise -> VOL_UP, counterclockwise -> VOL_DOWN
-            sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN>;
-        };
-
-        bluetooth_layer {
-            // -------------------------------------
-            // |  TO(0)    |  TO(1)    |  TO(2)    |
-            // |  TO(3)    |  TO(0)    |  TO(1)    |
-            // |  MO(3)    |  TO(2)    |  MO(2)    |
-            bindings = <
-                &bt BT_CLR         &bt BT_NXT   &bt BT_PRV
-                &bt BT_CLR_ALL     &kp N1       &kp N1
-                &kp N1             &kp N1       &mo 3
-            >;
-            // Encoder bindings: clockwise -> VOL_UP, counterclockwise -> VOL_DOWN
-            sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN>;
         };
     };
 };
