@@ -6,18 +6,37 @@
     keymap {
         compatible = "zmk,keymap";
 
+        macros {
+            compatible = "zmk,macros";
+
+            macro_alttab: alttab {
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings = <
+                    &kp LALT
+                    &kp TAB
+                    &kp LALT
+                >;
+            };
+            macro_CTRL_SHIFT_T: CTRL_SHIFT_T {
+                label = "CTRL_SHIFT_T";
+                bindings = <&kp LC(LS(T))>;
+            };
+
+        };
+
         default_layer {
             // -------------------------------------
             // |     1     |     2     |     3     |
             // |     4     |     5     |     6     |
             // |  MO(3)    |     8     |  MO(2)    |
             bindings = <
-                &kp N1    &kp N2    &kp N3
-                &kp N4    &kp N5    &kp N6
-                &kp N7    &kp N8    &mo 5
+                &macro_alttab   &kp LC(TAB)  &macro_CTRL_SHIFT_T
+                &kp LC(C)       &kp LC(V)    &kp LC(X)
+                &kp LC(Z)       &kp LC(Y)    &mo 5
             >;
             // Encoder bindings: clockwise -> VOL_UP, counterclockwise -> VOL_DOWN
-            sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         upper_layer {
@@ -50,13 +69,13 @@
 
         laptop_layer {
             // -------------------------------------
-            // |  TO(0)    |  TO(1)    |  TO(2)    |
-            // |  TO(3)    |  TO(0)    |  TO(1)    |
-            // |  MO(3)    |  TO(2)    |  MO(2)    |
+            // |     1     |     2     |     3     |
+            // |     4     |     5     |     6     |
+            // |  MO(3)    |     8     |  MO(2)    |
             bindings = <
-                &kp N1    &kp N2    &kp N3
-                &kp N4    &kp N5    &kp N6
-                &kp N7    &kp N8    &mo 5
+                &macro_alttab   &kp LC(TAB)  &macro_CTRL_SHIFT_T
+                &kp LC(C)       &kp LC(V)    &kp LC(X)
+                &kp LC(Z)       &kp LC(Y)    &mo 5
             >;
             // Encoder bindings: clockwise -> VOL_UP, counterclockwise -> VOL_DOWN
             sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN>;
