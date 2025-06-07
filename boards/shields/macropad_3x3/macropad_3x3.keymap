@@ -3,22 +3,21 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
+    macros {
+        compatible = "zmk,macros";
+
+        macro_alttab: alttab {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <
+                &kp LALT
+                &kp TAB
+                &kp LALT
+            >;
+        };
+    };
     keymap {
         compatible = "zmk,keymap";
-
-        macros {
-            compatible = "zmk,macros";
-
-            macro_alttab: alttab {
-                compatible = "zmk,behavior-macro";
-                #binding-cells = <0>;
-                bindings = <
-                    &kp LALT
-                    &kp TAB
-                    &kp LALT
-                >;
-            };
-        };
 
         default_layer {
             // -------------------------------------
