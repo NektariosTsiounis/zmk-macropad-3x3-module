@@ -81,9 +81,9 @@
             // |  TO(3)    |  TO(0)    |  TO(1)    |
             // |  MO(3)    |  TO(2)    |  MO(2)    |
             bindings = <
-                &bt BT_CLR         &bt BT_NXT   &bt BT_PRV
-                &bt BT_CLR_ALL     &kp N1       &kp N1
-                &kp N1             &kp N1       &mo 5
+                &bt BT_CLR         &bt BT_NXT    &bt BT_PRV
+                &bt BT_CLR_ALL     &kp N1        &kp N1
+                &sys_reset         &bootloader   &mo 5
             >;
             // Encoder bindings: clockwise -> VOL_UP, counterclockwise -> VOL_DOWN
             sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN>;
