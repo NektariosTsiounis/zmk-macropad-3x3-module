@@ -18,11 +18,6 @@
                     &kp LALT
                 >;
             };
-            macro_CTRL_SHIFT_T: CTRL_SHIFT_T {
-                label = "CTRL_SHIFT_T";
-                bindings = <&kp LC(LS(T))>;
-            };
-
         };
 
         default_layer {
@@ -31,7 +26,7 @@
             // |     4     |     5     |     6     |
             // |  MO(3)    |     8     |  MO(2)    |
             bindings = <
-                &macro_alttab   &kp LC(TAB)  &macro_CTRL_SHIFT_T
+                &macro_alttab   &kp LC(TAB)  &kp LC(LS(T))
                 &kp LC(C)       &kp LC(V)    &kp LC(X)
                 &kp LC(Z)       &kp LC(Y)    &mo 5
             >;
