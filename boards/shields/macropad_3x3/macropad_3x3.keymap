@@ -39,12 +39,12 @@
             // |     4     |     5     |     6     |
             // |  MO(3)    |     8     |  MO(2)    |
             bindings = <
-                &sk LSHFT LALT F    &sk LSHFT LALT F    &sk LSHFT LALT F
-                &sk LSHFT LALT F    &sk LSHFT LALT F    &sk LSHFT LALT F
-                &sk LSHFT LALT F    &sk LSHFT LALT F    &mo 5
+                &kp N3    &kp N2    &kp N1
+                &kp N4    &kp N5    &kp N6
+                &kp N7    &kp N8    &mo 5
             >;
             // Encoder bindings: clockwise -> VOL_UP, counterclockwise -> VOL_DOWN
-            sensor-bindings = <&inc_dec_kp LC(Y) LC(Z)>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         lower_layer {
