@@ -33,7 +33,7 @@
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
-        code_layer {
+        upper_layer {
             // -------------------------------------
             // |     3     |     2     |     1     |
             // |     4     |     5     |     6     |
